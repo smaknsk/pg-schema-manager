@@ -60,7 +60,7 @@ pgschema/
 ### 1. Initialization
 To setup this structure in a new target directory:
 ```bash
-sh /Users/smak/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/target/directory
+sh ~/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/target/directory
 ```
 
 ### 2. local Environment Setup

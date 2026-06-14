@@ -60,7 +60,7 @@ pgschema/
 
 If you are using this as a coding agent skill, you can initialize it in any folder:
 ```bash
-sh /Users/smak/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/your/project/pgschema
+sh ~/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/your/project/pgschema
 ```
 
 Alternatively, copy the repository files directly to your database setup folder.
