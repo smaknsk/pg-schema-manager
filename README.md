@@ -60,31 +60,25 @@ This package is designed to run as a plugin/extension across multiple developer 
 
 ### 🔌 Manual Installation for AI Assistants
 
-#### 1. Google Antigravity (IDE)
-Copy or clone this repository to the Antigravity local plugins folder:
+#### 1. Google Antigravity (IDE/CLI)
+Install the plugin directly from the GitHub repository using the `agy` CLI command:
 ```bash
-mkdir -p ~/.gemini/config/plugins/
-cp -r /path/to/pg-schema-manager ~/.gemini/config/plugins/pg-schema-manager
+agy plugin install https://github.com/smaknsk/pg-schema-manager.git
 ```
-The Antigravity IDE will automatically load the plugin manifest `plugin.json` and index the database skill located in `skills/pg-schema-manager/SKILL.md`.
+The Antigravity CLI and IDE will automatically clone, register the plugin metadata (`plugin.json`), and index the skill (`skills/pg-schema-manager/SKILL.md`).
 
-#### 2. Google Antigravity (CLI)
-Copy this repository to the local skills folder:
-```bash
-mkdir -p ~/.gemini/config/skills/
-cp -r /path/to/pg-schema-manager ~/.gemini/config/skills/pg-schema-manager
-```
-You can initialize this layout in any project by running the setup script:
+Once installed, you can bootstrap the directory layout in your target database directory:
 ```bash
 sh ~/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/your/project/pgschema
 ```
 
-#### 3. Gemini CLI Extensions
-You can load the local extension directly:
+#### 2. Gemini CLI Extensions
+Install the extension directly via Git:
 ```bash
-gemini extensions install /path/to/local/pg-schema-manager
+gemini extensions install https://github.com/smaknsk/pg-schema-manager.git
 ```
-Or copy it to the local extensions directory. It will read `gemini-extension.json` for extension metadata configuration.
+
+*Note: For local offline development, you can clone the repository manually to `~/.gemini/config/plugins/pg-schema-manager/` (for Antigravity) or run `gemini extensions install /path/to/local/pg-schema-manager` (for Gemini CLI).*
 
 #### 4. Claude Code
 For projects using Claude Code, copy the specialized prompt handbook to your project rules:
