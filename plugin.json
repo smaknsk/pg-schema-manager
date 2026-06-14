@@ -1,0 +1,10 @@
+{
+  "name": "pg-schema-manager",
+  "version": "1.0.0",
+  "description": "Modular, declarative, object-per-file PostgreSQL database schema manager plugin for developer AI assistants.",
+  "author": {
+    "name": "smaknsk"
+  },
+  "repository": "https://github.com/smaknsk/pg-schema-manager",
+  "license": "MIT"
+}

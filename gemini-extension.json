@@ -1,0 +1,8 @@
+{
+  "name": "pg-schema-manager",
+  "version": "1.0.0",
+  "description": "Modular, declarative, object-per-file PostgreSQL database schema manager extension for Gemini CLI.",
+  "author": {
+    "name": "smaknsk"
+  }
+}

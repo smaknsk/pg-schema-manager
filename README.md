@@ -54,24 +54,74 @@ pgschema/
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start & AI Plugin Manual Installation
 
-### 1. Installation
+This package is designed to run as a plugin/extension across multiple developer AI assistant environments. Below are the instructions for manual installation on each supported platform.
 
-If you are using this as a coding agent skill, you can initialize it in any folder:
+### 🔌 Manual Installation for AI Assistants
+
+#### 1. Google Antigravity (IDE)
+Copy or clone this repository to the Antigravity local plugins folder:
+```bash
+mkdir -p ~/.gemini/config/plugins/
+cp -r /path/to/pg-schema-manager ~/.gemini/config/plugins/pg-schema-manager
+```
+The Antigravity IDE will automatically load the plugin manifest `plugin.json` and index the database skill located in `skills/pg-schema-manager/SKILL.md`.
+
+#### 2. Google Antigravity (CLI)
+Copy this repository to the local skills folder:
+```bash
+mkdir -p ~/.gemini/config/skills/
+cp -r /path/to/pg-schema-manager ~/.gemini/config/skills/pg-schema-manager
+```
+You can initialize this layout in any project by running the setup script:
 ```bash
 sh ~/.gemini/config/skills/pg-schema-manager/scripts/init.sh /path/to/your/project/pgschema
 ```
 
-Alternatively, copy the repository files directly to your database setup folder.
+#### 3. Gemini CLI Extensions
+You can load the local extension directly:
+```bash
+gemini extensions install /path/to/local/pg-schema-manager
+```
+Or copy it to the local extensions directory. It will read `gemini-extension.json` for extension metadata configuration.
 
-### 2. Local Environment Setup
+#### 4. Claude Code
+For projects using Claude Code, copy the specialized prompt handbook to your project rules:
+```bash
+cp /path/to/pg-schema-manager/platforms/claude/CLAUDE.md /path/to/your/project/.clauderules
+```
+This feeds guidelines directly to Claude regarding your object-per-file schema setup, migration compilation passes, and relative includes.
 
-1. Copy the configuration:
+#### 5. OpenAI Codex / Cursor
+For Cursor or Codex users, copy the rule definitions to the root of your project:
+```bash
+cp /path/to/pg-schema-manager/platforms/codex/CODEX.md /path/to/your/project/.cursorrules
+# or .agentrules for other Codex integrations
+```
+
+---
+
+### 📂 Adding New AI Assistants (Future-Proof Structure)
+
+To add support for a new AI platform (e.g. Copilot, Windsurf, Qodo), simply:
+1. Create a folder under `platforms/<platform_name>/`.
+2. Add a `<PLATFORM>.md` instructions guide defining how the assistant should interact with this schema.
+3. Document manual loading steps in this README.
+
+---
+
+### 💻 Local Environment Setup
+
+1. Once your project directory is initialized (using `init.sh` above), go to your target database folder:
+   ```bash
+   cd /path/to/your/project/pgschema
+   ```
+2. Copy the template database configuration:
    ```bash
    cp .env.dist .env
    ```
-2. Start the local database container:
+3. Start the PostgreSQL container:
    ```bash
    make up
    ```
